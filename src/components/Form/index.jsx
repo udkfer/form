@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { TextField } from "@mui/material";
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
+import { Button, TextField } from "@mui/material";
 
 function Form() {
   const [name, setName] = useState("");
@@ -34,11 +35,13 @@ function Form() {
     <div>
       Hello, { name }
       <div>
-        <TextField value={name} onChange={(e) => setName(e.target.value)} onBlur={validateForm} label="Name" />
+        <TextField value={name} onChange={(e) => setName(e.target.value)} type="name" onBlur={validateForm} label="Name" />
         <TextField value={email} onChange={(e) => setEmail(e.target.value)} type="email" onBlur={validateForm} label="E-mail" />
         <TextField value={password} onChange={(e) => setPassword(e.target.value)} type="password" onBlur={validatePassword} error = {!validPassword} label="Password" />
       </div>
-      { validForm ? <p> alles gut </p> : <p> alles scheisse </p> }
+      <Button variant="contained" disabled={!validForm} >
+      { validForm ? "alles gut" : "alles scheisse"  }
+      </Button>
     </div>
   );
 }
