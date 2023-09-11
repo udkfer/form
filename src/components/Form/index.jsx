@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
-import { Button, TextField } from "@mui/material";
+import { Modal, Grid, Typography, Button, TextField } from "@mui/material";
+import "./style.css";
 
-function Form() {
+function Form({ open, onClose }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,18 +32,72 @@ function Form() {
   }, [name, email, password]);
 
   return (
-    <div>
-      Hello, { name }
-      <div>
-        <TextField value={name} onChange={(e) => setName(e.target.value)} type="name" onBlur={validateForm} label="Name" />
-        <TextField value={email} onChange={(e) => setEmail(e.target.value)} type="email" onBlur={validateForm} label="E-mail" />
-        <TextField value={password} onChange={(e) => setPassword(e.target.value)} type="password" onBlur={validatePassword} error = {!validPassword} label="Password" />
+    <Modal open={open} onClose={onClose}>
+      <div className="modal-container" style={{ width: "fit-content" }}>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <Typography variant="h5">Sign in</Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              id="outlined-basic"
+              variant="outlined"
+              fullWidth
+              label="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              onBlur={validateForm}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              id="outlined-basic"
+              variant="outlined"
+              fullWidth
+              label="E-mail"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              onBlur={validateForm}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              id="outlined-basic"
+              variant="outlined"
+              fullWidth
+              label="Password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              onBlur={validatePassword}
+              error={!validPassword}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <Button
+                variant="outlined"
+                color="primary"
+                onClick={onClose} // Close modal when "Create Account" is clicked
+                style={{ width: "48%" }}
+              >
+                Create Account
+              </Button>
+              <Button
+                variant="contained"
+                color="primary"
+                disabled={!validForm}
+                style={{ width: "48%" }}
+              >
+                {validForm ? "Login" : "Fields incomplete"}
+              </Button>
+            </div>
+          </Grid>
+        </Grid>
       </div>
-      <Button variant="contained" disabled={!validForm} >
-      { validForm ? "alles gut" : "alles scheisse"  }
-      </Button>
-    </div>
+    </Modal>
   );
 }
 
 export default Form;
+

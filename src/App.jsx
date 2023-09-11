@@ -18,7 +18,7 @@ function App() {
           <FormPage />
         </Route>
         <Route exact path="/home">
-          <h1>DaBussy</h1>
+          <h1>A place known as '/home'</h1>
         </Route>
         <Redirect to="/home" />
       </Switch>

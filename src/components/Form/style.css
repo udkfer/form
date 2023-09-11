@@ -1,0 +1,49 @@
+.modal-container {
+  background-color: #fff;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); /* Add elevation */
+  padding: 2rem; /* Reduce padding for a sleeker look */
+  border-radius: 4px; /* Smoother corners */
+  width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.textfield-container {
+  display: grid;
+  grid-gap: 1rem;
+  margin-bottom: 1rem;
+  justify-items: center;
+}
+
+/* Style your text fields */
+.textfield {
+  width: 100%;
+  border: 1px solid #ccc; /* Add a border */
+  border-radius: 4px; /* Smoother corners */
+  padding: 8px; /* Add padding */
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end; /* Typically, buttons are on the right */
+  margin-top: 1rem;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Style your buttons */
+.button {
+  padding: 8px 16px;
+  background-color: #007bff; /* MUI primary color */
+  color: #fff; /* Text color */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #0056b3; /* Darker color on hover */
+}
+
