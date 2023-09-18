@@ -17,10 +17,7 @@ function App() {
         <Route exact path="/form">
           <FormPage />
         </Route>
-        <Route exact path="/home">
-          <h1>A place known as '/home'</h1>
-        </Route>
-        <Redirect to="/home" />
+        <Redirect to="/users" />
       </Switch>
       </div>
     </Router>
