@@ -1,22 +1,20 @@
-import { useHistory } from 'react-router-dom'; import styles from './style.module.css';
+import { useHistory } from 'react-router-dom';
+import styles from './style.module.css';
 import { Chip, Tooltip } from '@mui/material';
-import Form from '../Form';
-import { useState } from 'react'
+import { useFormStore } from '../../store/formStore';
 
 function Navbar() {
   const history = useHistory();
-  const [open, setOpen] = useState(false);
+  const { toggleModal } = useFormStore();
 
   return (
     <div className={ styles.navbar }>
       <Tooltip title="Form home">
         <div className={ styles.title } onClick={() => history.push("/users")}>Form</div>
       </Tooltip>
-      <Chip className={ styles.signin } label="Sign in" variant="outlined" onClick={() => setOpen(true)}>Sign in</Chip>
-      <Form open={open} onClose={() => setOpen(false)}/>
+      <Chip className={ styles.signin } label="Sign in" variant="outlined" onClick={toggleModal}>Sign in</Chip>
     </div>
   )
 }
 
 export default Navbar
-

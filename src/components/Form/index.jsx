@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
 import { Modal, Grid, Typography, Button, TextField } from "@mui/material";
 import "./style.css";
+import { useFormStore } from "../../store/formStore";
 
-function Form({ open, onClose }) {
+function Form() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [validForm, setValidForm] = useState(false);
   const [validPassword, setValidPassword] = useState(false);
+
+  const { openModal, toggleModal } = useFormStore();
 
   function validatePassword() {
     if (password.length > 8) {
@@ -15,7 +18,6 @@ function Form({ open, onClose }) {
     } else {
       setValidPassword(false);
     }
-    validateForm();
   }
 
   function validateForm() {
@@ -32,7 +34,7 @@ function Form({ open, onClose }) {
   }, [name, email, password]);
 
   return (
-    <Modal open={open} onClose={onClose}>
+    <Modal open={openModal} onClose={toggleModal}>
       <div className="modal-container" style={{ width: "fit-content" }}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
@@ -78,7 +80,7 @@ function Form({ open, onClose }) {
               <Button
                 variant="outlined"
                 color="primary"
-                onClick={onClose} // Close modal when "Create Account" is clicked
+                onClick={toggleModal} // Close modal when "Create Account" is clicked
                 style={{ width: "48%" }}
               >
                 Create Account
@@ -100,4 +102,5 @@ function Form({ open, onClose }) {
 }
 
 export default Form;
+
 
