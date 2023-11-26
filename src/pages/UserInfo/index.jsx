@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { TextField, Button } from "@mui/material";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { getUser, updateUser, deleteUser } from "../../api/userService";
 import styles from "./style.module.css";
 
 function UserInfo() {
   const [user, setUser] = useState(null);
   const { id } = useParams();
+  const history = useHistory();
 
   useEffect(() => {
     async function fetchData() {
@@ -62,6 +63,7 @@ function UserInfo() {
           variant="outlined"
           onClick={async () => {
             await deleteUser(user.id);
+            history.push("/users");
           }}
         >
           Delete
