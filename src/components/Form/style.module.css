@@ -1,4 +1,4 @@
-.modal-container {
+.modalContainer {
   background-color: #fff;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); /* Add elevation */
   padding: 2rem; /* Reduce padding for a sleeker look */
@@ -10,7 +10,22 @@
   transform: translate(-50%, -50%);
 }
 
-.textfield-container {
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.trigger {
+  padding: 8px 16px;
+  background-color: #007bff; /* MUI primary color */
+  color: #fff; /* Text color */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.textfieldContainer {
   display: grid;
   grid-gap: 1rem;
   margin-bottom: 1rem;
@@ -25,7 +40,7 @@
   padding: 8px; /* Add padding */
 }
 
-.modal-buttons {
+.modalButtons {
   display: flex;
   justify-content: flex-end; /* Typically, buttons are on the right */
   margin-top: 1rem;

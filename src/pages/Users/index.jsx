@@ -1,4 +1,4 @@
-import { getUsers } from "../../../api/dataApi";
+import { getUsers } from "../../api/userService";
 import { useEffect, useState } from "react";
 import UserCard from "../../components/UserCard";
 import styles from "./index.module.css"
@@ -8,7 +8,6 @@ function UsersData() {
   useEffect(() => {
     async function fetchData() {
       const data = await getUsers();
-      console.log(data);
       setUsers(data);
     }
     fetchData();
@@ -16,7 +15,7 @@ function UsersData() {
 
   return (
     <div className={ styles.user_card }>
-      {users.map((user) => (
+      {users.length > 0 && users.map((user) => (
         <div key={user.id}>
           <UserCard user={user} />
         </div>
