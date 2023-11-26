@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Modal, Grid, Typography, Button, TextField } from "@mui/material";
 import * as Tabs from "@radix-ui/react-tabs";
+import { createUser } from "../../api/userService";
 import { useFormStore } from "../../store/formStore";
 import { useUserStore } from "../../store/userStore";
 import styles from './style.module.css';
@@ -101,6 +102,10 @@ function Form() {
                     color="primary"
                     disabled={!validForm}
                     style={{ width: "48%" }}
+                    onClick={async () => {
+                      await createUser({name, email, password});
+                      toggleModal();
+                    }}
                   >
                     Register
                   </Button>
