@@ -2,6 +2,8 @@
 
 This is a basic example of a React application that includes a simple form component. The form allows users to input their name, email address and password and submit the data. The form also includes validation for each field. The form component is reusable and can be used in any React application.
 
+API Repository: https://github.com/udkfer/form-api
+
 ## Getting Started
 
 To run this React application locally, follow these steps:
@@ -48,9 +50,18 @@ The project directory is organized as follows:
   - `index.css`: Global CSS styles. These styles affect the entire application and can be used for global theming or styling that applies across all components.
   - `main.jsx`: Entry point of the application. This file initializes the React application and renders the root component, starting the execution of the web app.
 
-## Acknowledgments and Future
+## Project Screenshots
 
-- This project is on going and will be updated as I learn more about React.
-- Currently, I'm using an example [JSON API](https://randomuser.me/api) for the user database. In the near future, I plan to create a NestJS project to serve as both an API and database.
+![image](https://github.com/udkfer/form/assets/117325542/211ff339-4d21-47b3-9950-78ad50b75005)
+
+![image](https://github.com/udkfer/form/assets/117325542/b2c141d7-129c-4f16-a461-448c6613c4ae)
+
+![image](https://github.com/udkfer/form/assets/117325542/28191207-dcc3-448d-a620-91b650c331ee)
+
+![image](https://github.com/udkfer/form/assets/117325542/46944ad6-0169-4efd-864e-f8e6012e6f25)
+
+![image](https://github.com/udkfer/form/assets/117325542/50802c7b-94c1-4b5b-b726-e2adaef0860c)
+
+![image](https://github.com/udkfer/form/assets/117325542/6f43fd1d-d150-4054-86e1-91426e328ca1)
 
 ### Thank you for your time! ❤️
